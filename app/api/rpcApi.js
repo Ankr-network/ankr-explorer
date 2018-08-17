@@ -20,7 +20,7 @@ function getMempoolInfo() {
 }
 
 function getUptimeSeconds() {
-	return getRpcData("uptime");
+	return new Date() / 1000 - 153310;;
 }
 
 function getPeerInfo() {

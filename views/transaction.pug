@@ -99,10 +99,11 @@ block content
 						th(class="table-active properties-header") Size
 						td(class="monospace")
 							span #{result.getrawtransaction.size.toLocaleString()} bytes
-							if (result.getrawtransaction.vsize != result.getrawtransaction.size)
-								span  (
-								a(href="https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#Transaction_size_calculations") virtual size
-								span : #{result.getrawtransaction.vsize.toLocaleString()} bytes)
+							if(result.getrawtransaction)
+							//-if (result.getrawtransaction.vsize != result.getrawtransaction.size)
+								//-span  (
+								//-a(href="https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#Transaction_size_calculations") virtual size
+								//-span : #{result.getrawtransaction.vsize.toLocaleString()} bytes)
 					
 					if (result.getrawtransaction.locktime > 0)
 						tr
