@@ -7,8 +7,8 @@ block content
 	h1(class="h2") #{coinConfig.siteTitle}
 	hr
 
-	if (config.demoSite && session.hideHomepageBanner != "true")
-		div(class="alert alert-primary alert-dismissible", role="alert")
+	if (config.banner && session.hideHomepageBanner != "true")
+		div(class="ankr-information alert alert-primary alert-dismissible", role="alert")
 			p
 				strong #{coinConfig.siteTitle}
 				span  is 

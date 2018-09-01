@@ -37,7 +37,10 @@ router.get("/", function(req, res) {
 		var blockHeights = [];
 		if (getblockchaininfo.blocks) {
 			for (var i = 0; i < 10; i++) {
-				blockHeights.push(getblockchaininfo.blocks - i);
+				const idx = getblockchaininfo.blocks - i
+				if (idx >= 0) {
+					blockHeights.push(idx);
+				}
 			}
 		}
 
@@ -220,7 +223,7 @@ router.get("/blocks", function(req, res) {
 				}
 			}
 		}
-		
+
 		coreApi.getBlocksByHeight(blockHeights).then(function(blocks) {
 			res.locals.blocks = blocks;
 
@@ -436,7 +439,7 @@ router.get("/address/:address", function(req, res) {
 	var address = req.params.address;
 
 	res.locals.address = address;
-	
+
 	res.locals.result = {};
 
 	try {
@@ -456,7 +459,7 @@ router.get("/address/:address", function(req, res) {
 	if (global.miningPoolsConfig.payout_addresses[address]) {
 		res.locals.payoutAddressForMiner = global.miningPoolsConfig.payout_addresses[address];
 	}
-	
+
 	coreApi.getAddress(address).then(function(result) {
 		res.locals.result.validateaddress = result;
 
@@ -625,7 +628,7 @@ router.get("/rpc-browser", function(req, res) {
 						if (err3) {
 							if (result3) {
 								res.locals.methodResult = {error:("" + err3), result:result3};
-								
+
 							} else {
 								res.locals.methodResult = {error:("" + err3)};
 							}
@@ -669,7 +672,7 @@ router.get("/fun", function(req, res) {
 	});
 
 	res.locals.historicalData = sortedList;
-	
+
 	res.render("fun");
 });
 

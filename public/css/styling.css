@@ -85,3 +85,28 @@ footer a {
 footer a:hover {
 	color: white;
 }
+
+.btn-primary {
+	background: #517CC3;
+	border-color: #517CC3;
+}
+
+a {
+	color: #517CC3;
+}
+
+.navbar, .footer {
+	background: #3F4666 !important;
+}
+
+.ankr-information {
+	background: #EAF5FA;
+}
+
+.ankr-information p {
+	color: #3F4666;
+}
+
+.navbar, .nav-link {
+	color: white !important;
+}
